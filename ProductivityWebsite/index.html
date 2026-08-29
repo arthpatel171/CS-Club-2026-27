@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Productivity Tools</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="title center">
+        <h1>Productivity Tools</h1>
+    </div>
+    <hr>
+    <div class="content center">
+        <details>
+            <summary>Clock</summary>
+            <div class="clock">
+                <h1 class="section-display" id="clockDisplay">00:00:00</h1>
+                <button id="clockOnOff" onclick="clockOnOff()">Start</button>
+                <button id="lapClock" onclick="lapClock()">Lap</button>
+                <button id="resetClock" onclick="resetClock()">Reset</button>
+            </div>
+        </details>
+        <br>
+        <details>
+            <summary>Ticker</summary>
+            <div class="ticker">
+            <h1 class="section-display" id="tickerDisplay">0</h1>
+            <button id="tickerPlus" onclick="tickerAddOne()">+</button>
+            <button id="tickerMinus" onclick="tickerSubtractOne()">-</button>
+            <button id="tickerReset" onclick="tickerReset()">Reset</button> 
+        </div>
+        </details>
+    </div>
+    <hr>
+</body>
+</html>
