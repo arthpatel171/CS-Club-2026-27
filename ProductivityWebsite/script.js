@@ -11,15 +11,15 @@ function tickerSubtractOne() {
 function tickerReset() {
 	document.getElementById("tickerDisplay").innerHTML = "0";
 }
+
 var clock = {
 		secondValue: 0,
 		minuteValue: 0,
 		hourValue: 0,
 		isRunning: false,
+		interval: null,
 		runClock: function() {
-			if (clock.isRunning == true) {
 			clock.secondValue++;
-			}
 			if (clock.secondValue == 60) {
 				clock.minuteValue++;
 				clock.secondValue = 0;
@@ -28,7 +28,7 @@ var clock = {
 				clock.hourValue++;
 				clock.minuteValue = 0;
 			}		
-			},
+		},
 		padZero: function(num) {
 			if (num == 0) {
 				num = "00";
@@ -38,21 +38,24 @@ var clock = {
 			return num;		
 		},
 		updateClockDisplay: function() {
-			document.getElementById("clockDisplay").innerHTML = clock.padZero(clock.hourValue) + ":" + clock.padZero(clock.minuteValue) + ":" + clock.padZero(clock.secondValue);
+			document.getElementById("clockDisplay").innerText = clock.padZero(clock.hourValue) + ":" + clock.padZero(clock.minuteValue) + ":" + clock.padZero(clock.secondValue);
 		},
 		clockOnOff: function() {
-			
+			clock.isRunning = !clock.isRunning;
+			if (clock.isRunning == true) {
+				document.getElementById("startStop").innerText = "Stop"
+				clock.interval = setInterval(function() {
+					clock.runClock();
+					clock.updateClockDisplay();
+				}, 1000);
+			} else {
+				document.getElementById("startStop").innerText = "Start"
+				clearInterval(clock.interval);
+			}
 		}
-		};
+	};
 
 function clockOnOff() {
-	clock.isRunning = !clock.isRunning;
-	setInterval(function() {
-		clock.runClock();
-		clock.updateClockDisplay();
-	}, 1000);
+	clock.clockOnOff();
 }
 
-function pausePlayClock() {
-	clock.pausePlayClock();
-}
