@@ -1,0 +1,1 @@
+The mission of Computer Science Club is to help members learn, create, and innovate with technology by building projects, developing coding skills, and learning how to use AI to turn ideas into reality.
